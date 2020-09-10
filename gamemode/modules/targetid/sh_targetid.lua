@@ -13,9 +13,9 @@ if CLIENT then
     if !GAMEMODE.ROUND.Active then return end
 
     local tr = util.TraceLine( {
-    	start = ply:EyePos(),
-    endpos = ply:EyePos() + EyeAngles():Forward() * 700,
-    	filter = ply
+      start = ply:EyePos(),
+      endpos = ply:EyePos() + EyeAngles():Forward() * 700,
+      filter = ply
     } )
 
     local ent = tr.Entity
