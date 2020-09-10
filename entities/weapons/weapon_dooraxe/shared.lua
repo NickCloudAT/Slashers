@@ -6,7 +6,7 @@
 -- @Last Modified time: 2017-07-26 15:21:12
 
 SWEP.Author = "Vyn"
- 
+
 SWEP.Category = "Trap"
 
 SWEP.Spawnable = true
@@ -77,10 +77,10 @@ function slashers_dooraxe_canplace(ply)
 	tracedata.filter = {ply:GetEyeTrace().Entity}
 
 	local traceresulte = util.TraceLine(tracedata)
-	
+
 --	if IsValid(traceresulte.Entity) then
 --		if traceresulte.Entity:GetClass() == "prop_door_rotating" then return true end
 --	end
 	if traceresulte.HitWorld then return true end
-	return false 
+	return false
 end

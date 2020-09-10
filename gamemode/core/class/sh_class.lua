@@ -20,6 +20,8 @@ GM.CLASS.Survivors[CLASS_SURV_SPORTS].stamina = 310
 GM.CLASS.Survivors[CLASS_SURV_SPORTS].model = "models/steinman/slashers/sport_pm.mdl"
 GM.CLASS.Survivors[CLASS_SURV_SPORTS].die_sound = "slashers/effects/scream_man_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_SPORTS].weapons = {}
+GM.CLASS.Survivors[CLASS_SURV_SPORTS].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_SPORTS].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_SPORTS].dispname = "Trent"
 	GM.CLASS.Survivors[CLASS_SURV_SPORTS].description = GM.LANG:GetString("class_desc_sports")
@@ -35,6 +37,8 @@ GM.CLASS.Survivors[CLASS_SURV_POPULAR].stamina = 160
 GM.CLASS.Survivors[CLASS_SURV_POPULAR].model = "models/steinman/slashers/popular_pm.mdl"
 GM.CLASS.Survivors[CLASS_SURV_POPULAR].die_sound = "slashers/effects/scream_girl_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_POPULAR].weapons = {}
+GM.CLASS.Survivors[CLASS_SURV_POPULAR].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_POPULAR].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_POPULAR].dispname = "Lynda"
 	GM.CLASS.Survivors[CLASS_SURV_POPULAR].description = GM.LANG:GetString("class_desc_popular")
@@ -50,6 +54,8 @@ GM.CLASS.Survivors[CLASS_SURV_NERD].stamina = 150
 GM.CLASS.Survivors[CLASS_SURV_NERD].model = "models/steinman/slashers/nerd_pm.mdl"
 GM.CLASS.Survivors[CLASS_SURV_NERD].die_sound = "slashers/effects/scream_man_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_NERD].weapons = {"tim_detector"}
+GM.CLASS.Survivors[CLASS_SURV_NERD].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_NERD].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_NERD].dispname = "Noah"
 	GM.CLASS.Survivors[CLASS_SURV_NERD].description = GM.LANG:GetString("class_desc_nerd")
@@ -65,6 +71,8 @@ GM.CLASS.Survivors[CLASS_SURV_FAT].stamina = 120
 GM.CLASS.Survivors[CLASS_SURV_FAT].model = "models/steinman/slashers/fat_pm.mdl"
 GM.CLASS.Survivors[CLASS_SURV_FAT].die_sound = "slashers/effects/scream_man_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_FAT].weapons = {}
+GM.CLASS.Survivors[CLASS_SURV_FAT].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_FAT].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_FAT].dispname = "Franklin"
 	GM.CLASS.Survivors[CLASS_SURV_FAT].description = GM.LANG:GetString("class_desc_fat")
@@ -80,6 +88,8 @@ GM.CLASS.Survivors[CLASS_SURV_SHY].stamina = 190
 GM.CLASS.Survivors[CLASS_SURV_SHY].model = "models/player/korka007/maxc.mdl"
 GM.CLASS.Survivors[CLASS_SURV_SHY].die_sound = "slashers/effects/scream_girl_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_SHY].weapons = {}
+GM.CLASS.Survivors[CLASS_SURV_SHY].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_SHY].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_SHY].dispname = "Sydney"
 	GM.CLASS.Survivors[CLASS_SURV_SHY].description = GM.LANG:GetString("class_desc_shy")
@@ -95,6 +105,8 @@ GM.CLASS.Survivors[CLASS_SURV_JUNKY].stamina = 180
 GM.CLASS.Survivors[CLASS_SURV_JUNKY].model = "models/steinman/slashers/junky_pm.mdl"
 GM.CLASS.Survivors[CLASS_SURV_JUNKY].die_sound = "slashers/effects/scream_man_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_JUNKY].weapons = {}
+GM.CLASS.Survivors[CLASS_SURV_JUNKY].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_JUNKY].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_JUNKY].name = "Junky"
 	GM.CLASS.Survivors[CLASS_SURV_JUNKY].dispname = "Marty"
@@ -111,6 +123,8 @@ GM.CLASS.Survivors[CLASS_SURV_EMO].stamina = 180
 GM.CLASS.Survivors[CLASS_SURV_EMO].model = "models/steinman/slashers/emo_pm.mdl"
 GM.CLASS.Survivors[CLASS_SURV_EMO].die_sound = "slashers/effects/scream_girl_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_EMO].weapons = {}
+GM.CLASS.Survivors[CLASS_SURV_EMO].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_EMO].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_EMO].dispname = "Audrey"
 	GM.CLASS.Survivors[CLASS_SURV_EMO].description = GM.LANG:GetString("class_desc_emo")
@@ -127,6 +141,8 @@ GM.CLASS.Survivors[CLASS_SURV_BLACK].model = "models/player/spike/lamar.mdl"
 GM.CLASS.Survivors[CLASS_SURV_BLACK].die_sound = "slashers/effects/scream_man_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_BLACK].weapons = {"weapon_keys"}
 GM.CLASS.Survivors[CLASS_SURV_BLACK].keysNumber = 3
+GM.CLASS.Survivors[CLASS_SURV_BLACK].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_BLACK].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_BLACK].dispname = "Roland"
 	GM.CLASS.Survivors[CLASS_SURV_BLACK].description = GM.LANG:GetString("class_desc_black")
@@ -142,6 +158,8 @@ GM.CLASS.Survivors[CLASS_SURV_SHERIF].stamina = 180
 GM.CLASS.Survivors[CLASS_SURV_SHERIF].model = "models/steinman/slashers/sheriff_pm.mdl"
 GM.CLASS.Survivors[CLASS_SURV_SHERIF].die_sound = "slashers/effects/scream_girl_1.wav"
 GM.CLASS.Survivors[CLASS_SURV_SHERIF].weapons = {"stun_gun"}
+GM.CLASS.Survivors[CLASS_SURV_SHERIF].health_regen_delay = 1
+GM.CLASS.Survivors[CLASS_SURV_SHERIF].health_regen_amount = 1
 if CLIENT then
 	GM.CLASS.Survivors[CLASS_SURV_SHERIF].dispname = "Gale"
 	GM.CLASS.Survivors[CLASS_SURV_SHERIF].description = GM.LANG:GetString("class_desc_sherif")

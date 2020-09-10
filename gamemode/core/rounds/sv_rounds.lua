@@ -133,6 +133,9 @@ function GM.ROUND:Start(forceKiller)
 		end
 	)
 
+	sls_reset_regen()
+	sls_start_regen()
+
 	print("Start round " .. GM.ROUND.Count .. "/" .. GetConVar("slashers_round_max"):GetInt())
 end
 
@@ -206,6 +209,9 @@ function GM.ROUND:End(nowin)
 	hook.Run("sls_round_End")
 	net.Start("sls_round_End")
 	net.Broadcast()
+
+	sls_kill_regen()
+
 	print("Round End")
 end
 
@@ -292,9 +298,10 @@ local function Think()
 
 	-- Waiting Players
 	if GM.ROUND.WaitingPlayers && (!GM.ROUND.NextStart || curtime >= GM.ROUND.NextStart) then
-		if not lastWait then lastWait = curtime end
+		if not lastWait then lastWait = curtime+8 end
 
 		if lastWait+8<curtime then
+			lastWait = curtime
 			local count = 0
 			for _, v in ipairs(player.GetAll()) do
 				if v.initialKill then

@@ -36,7 +36,7 @@ SWEP.InspectAng = Vector(17.086, 3.938, 14.836)
 
 SWEP.Primary.Reach = 75
 SWEP.Primary.RPM = 50
-SWEP.Primary.Damage = 70
+SWEP.Primary.Damage = 60
 
 SWEP.Primary.Ammo = "gasoline"
 SWEP.Primary.ClipSize = 1
@@ -49,11 +49,12 @@ SWEP.Primary.Motorized_IdleSound = Sound("Weapon_Chainsaw.IdleLoop") --Idle soun
 SWEP.Primary.Motorized_SawSound = Sound("Weapon_Chainsaw.SawLoop") --Rev sound, when on
 SWEP.Primary.Motorized_AmmoConsumption_Idle = 0 --Ammo units to consume while idle
 SWEP.Primary.Motorized_AmmoConsumption_Saw = 0 --Ammo units to consume while sawing
-SWEP.Primary.Motorized_RPM = 400
-SWEP.Primary.Motorized_Damage = 100 --DPS
+SWEP.Primary.Motorized_RPM = 350
+SWEP.Primary.Motorized_Damage = 70 --DPS
 SWEP.Primary.Motorized_Reach = 60 --DPS
 
 SWEP.Secondary.BashDelay = 0.15
+SWEP.Secondary.Damage = 80
 SWEP.ViewModelBoneMods = {
 	["ValveBiped.Bip01_R_Finger1"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0.254, 0.09), angle = Angle(15.968, -11.193, 1.437) },
 	["ValveBiped.Bip01_R_Finger0"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(3.552, 4.526, 0) },
@@ -75,8 +76,8 @@ function SWEP:Reload()
 		self:SetNWFloat("Clip",self:GetNWFloat("Clip",0)+ammototake)
 		self.Owner:SetAmmo(am-ammototake,self:GetPrimaryAmmoType())
 	end*/
-	
-	
+
+
 	local vm = self.Owner:GetViewModel()
 	if (CLIENT and IsFirstTimePredicted()) or SERVER then
 		if self.ChargeTransition or self:GetNWInt("ChargeStatus",0)>0 then return end
@@ -88,27 +89,27 @@ function SWEP:Reload()
 		local waittime = math.max(vm:SequenceDuration() - self.Primary.Motorized_ToggleBuffer,0)
 		self:SetNextIdleAnim( CurTime() +  waittime )
 		self:SetNextSecondaryFire( CurTime() +  waittime )
-		
+
 		timer.Simple(waittime,function()
 			if IsValid(self) then
 				self:SetNWInt("ChargeStatus",0)
-				self.ChargeTransition = false	
+				self.ChargeTransition = false
 				if !on then
 					self:SendWeaponSequence( "idle_on",vm,math.huge,false)
 					self:EmitSound(self.Primary.Motorized_IdleSound)
 				else
-					self:StopSound(self.Primary.Motorized_SawSound)	
-					self:StopSound(self.Primary.Motorized_IdleSound)				
+					self:StopSound(self.Primary.Motorized_SawSound)
+					self:StopSound(self.Primary.Motorized_IdleSound)
 				end
 			end
 		end)
-		
+
 		timer.Simple( on and 0.2 or self.Primary.Motorized_ToggleTime,function()
 			if IsValid(self) then
 				self:SetNWBool("On",!on)
-			end		
+			end
 		end)
-		
+
 		self:SetNextSecondaryFire(CurTime()+vm:SequenceDuration())
 	end
 end

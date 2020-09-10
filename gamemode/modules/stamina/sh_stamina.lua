@@ -226,4 +226,12 @@ if CLIENT then
 		DrawPartialTexturedRect(scrW / 2 - 128, scrH - 48, bwide, 32, 0, 0, bwide, 32, 256, 32)
 	end
 	hook.Add("HUDPaint", "sls_stamina_HUDPaint", HUDPaint)
+
+	net.Receive("sls_add_stamina", function()
+		local toAdd = net.ReadInt(12)
+		local attacker = LocalPlayer()
+
+		attacker.Stamina = attacker.Stamina+25<=attacker.MaxStamina and attacker.Stamina+25 or attacker.MaxStamina
+	end)
+
 end

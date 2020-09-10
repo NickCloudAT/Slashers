@@ -8,6 +8,8 @@
 local GM = GM or GAMEMODE
 local playermeta = FindMetaTable("Player")
 
+util.AddNetworkString("sls_add_stamina")
+
 function playermeta:SetSurvClass(class)
 	if !GM.CLASS.Survivors[class] then return false end
 
@@ -97,8 +99,43 @@ hook.Add("PlayerShouldTakeDamage", "sls_class_PlayerShouldTakeDamage", PlayerSho
 hook.Add("EntityTakeDamage", "sls_killer_nofalldamage", function(target, damageinfo)
 	if not target or not IsValid(target) or not target:IsPlayer() then return end
 	if not target:Alive() then return end
+
 	if target:Team() ~= TEAM_KILLER then return end
 	if not damageinfo:IsFallDamage() then return end
 
 	return true
+end)
+
+hook.Add("EntityTakeDamage", "sls_stamina_on_hit", function(target, damageinfo)
+	if not target or not IsValid(target) or not target:IsPlayer() then return end
+	if not target:Alive() then return end
+	if target:Team() ~= TEAM_KILLER then return end
+
+	local attacker = damageinfo:GetAttacker()
+
+	if not attacker or not IsValid(attacker) or not attacker:IsPlayer() then return end
+
+	net.Start("sls_add_stamina")
+	net.WriteInt(25, 12)
+	net.Send(attacker)
+end)
+
+hook.Add("EntityTakeDamage", "sls_scale_damage", function(ply, damageinfo)
+	if not ply or not IsValid(ply) or not ply:IsPlayer() then return end
+	local attacker = damageinfo:GetAttacker()
+	if not attacker or not IsValid(attacker) or not attacker:IsPlayer() then return end
+
+	local hitgroup = ply:LastHitGroup()
+
+	if attacker:Team() == TEAM_KILLER then
+		if hitgroup == HITGROUP_HEAD then
+			damageinfo:ScaleDamage(0.5)
+		end
+	else
+		if hitgroup == 4 or hitgroup == 5 or hitgroup == 6 or hitgroup == 7 then
+			damageinfo:ScaleDamage(4)
+		end
+	end
+
+	sls_print_debug_hit(ply, damageinfo)
 end)

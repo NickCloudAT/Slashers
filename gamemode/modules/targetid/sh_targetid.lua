@@ -3,7 +3,7 @@ if CLIENT then
     local ply = LocalPlayer()
     if !ply:Alive() then return end
     if !GAMEMODE.ROUND.Active then return end
-    draw.DrawText("HP: " .. tostring(ply:Health()), "TFASleek", ScrW() * 0.5, ScrH() - 100, Color(255,0,0,255), TEXT_ALIGN_CENTER)
+    draw.DrawText("HP: " .. tostring(ply:Health()), "horror2", ScrW() * 0.5, ScrH() - 100, Color(255,0,0,255), TEXT_ALIGN_CENTER)
   end
   hook.Add("HUDPaint", "sls_health_HUDPaint", HUDPaint)
 
@@ -24,7 +24,7 @@ if CLIENT then
 
     if not ent:Alive() then return end
 
-    draw.DrawText(ent:Nick(), "TFASleekSmall", ScrW() * 0.5, ScrH() * 0.25, Color(255,255,255,255), TEXT_ALIGN_CENTER)
+    draw.DrawText(ent:Nick(), "horror2", ScrW() * 0.5, ScrH() * 0.25, Color(255,255,255,255), TEXT_ALIGN_CENTER)
   end
   hook.Add("HUDPaint", "sls_name_HUDPaint", HUDPaint2)
 end

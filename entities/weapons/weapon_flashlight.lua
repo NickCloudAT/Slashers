@@ -57,12 +57,14 @@ SWEP.Secondary.Delay = 0.2
 SWEP.Secondary.Automatic = false
 
 SWEP.Secondary.BashDamage = 25
-SWEP.Secondary.BashDelay = 0.5
+SWEP.Secondary.BashDelay = 0.1
 SWEP.Secondary.BashLength = 40
-SWEP.Secondary.BashHitDelay = 1.8
+SWEP.Secondary.BashHitDelay = 1.1
 
 SWEP.MoveSpeed = 1
 SWEP.AllowViewAttachment = false
+
+SWEP.DrawCrosshair = false
 
 local matLight = Material( "sprites/light_ignorez" )
 

@@ -41,7 +41,7 @@ SWEP.Primary.Delay = 0.25
 SWEP.Primary.Damage = 60
 
 SWEP.Secondary.RPM = 45 -- Delay = 60/RPM, this is only AFTER you release your heavy attack
-SWEP.Secondary.Damage = 100
+SWEP.Secondary.Damage = 80
 SWEP.Secondary.Reach = 55
 SWEP.Secondary.SoundDelay = 0.05
 SWEP.Secondary.Delay = 0.25

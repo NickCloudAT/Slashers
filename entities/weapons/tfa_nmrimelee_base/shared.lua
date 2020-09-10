@@ -754,13 +754,12 @@ function SWEP:AltAttack()
 	end
 
 	self.tmptoggle = !self.tmptoggle
-
-	if not self.BashHitDelay then
+	if not self.Secondary.BashHitDelay then
 		self:SetNextPrimaryFire(CurTime()+vm:SequenceDuration())
 		self:SetNextSecondaryFire(CurTime()+vm:SequenceDuration())
 	else
-		self:SetNextPrimaryFire(CurTime()+self.BashHitDelay)
-		self:SetNextSecondaryFire(CurTime()+self.BashHitDelay)
+		self:SetNextPrimaryFire(CurTime()+self.Secondary.BashHitDelay)
+		self:SetNextSecondaryFire(CurTime()+self.Secondary.BashHitDelay)
 	end
 
 	if CLIENT then
