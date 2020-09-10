@@ -41,7 +41,7 @@ SWEP.Primary.Sound = "Weapon_686.Single"
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.Automatic = false
 SWEP.Primary.RPM = 120
-SWEP.Primary.Damage = 80
+SWEP.Primary.Damage = 50
 SWEP.Primary.NumShots = 1
 SWEP.Primary.Spread		= .0125					--This is hip-fire acuracy.  Less is more (1 is horribly awful, .0001 is close to perfect)
 SWEP.Primary.IronAccuracy = .005	-- Ironsight accuracy, should be the same for shotguns
@@ -103,13 +103,13 @@ if SERVER then
 		if target:Team() == TEAM_KILLER && !target.stun then
 			timer.Create("stungun_" .. target:UniqueID(), math.random(2, 4), 1, function()
 				if !IsValid(target) then return end
-				if target:Alive() then 
+				if target:Alive() then
 					target:SetRunSpeed(target.stungun_runspeed)
 					target:SetWalkSpeed(target.stungun_walkspeed)
 				end
 				target.stun = false
 			end)
-			
+
 			target.stun = true
 			target.stungun_runspeed = target:GetRunSpeed()
 			target.stungun_walkspeed = target:GetWalkSpeed()

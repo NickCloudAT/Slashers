@@ -32,6 +32,7 @@ function playermeta:SetSurvClass(class)
 	self:SetWalkSpeed(GM.CLASS.Survivors[class].walkspeed)
 	self:SetRunSpeed(GM.CLASS.Survivors[class].runspeed)
 	self:SetMaxHealth(GM.CLASS.Survivors[class].life)
+	self:SetHealth(GM.CLASS.Survivors[class].life)
 	self:GodDisable()
 	--self:SetNWInt("ClassID", class)
 	self.ClassID = class
@@ -57,8 +58,9 @@ function playermeta:SetupKiller()
 
 	self:SetWalkSpeed(GM.MAP.Killer.WalkSpeed)
 	self:SetRunSpeed(GM.MAP.Killer.RunSpeed)
-	self:SetMaxHealth(100)
-	self:GodEnable()
+	self:SetMaxHealth(700)
+	self:SetHealth(700)
+	--self:GodEnable()
 	self.ClassID = CLASS_KILLER
 end
 
@@ -91,3 +93,12 @@ local function PlayerShouldTakeDamage(ply, attacker)
 	end
 end
 hook.Add("PlayerShouldTakeDamage", "sls_class_PlayerShouldTakeDamage", PlayerShouldTakeDamage)
+
+hook.Add("EntityTakeDamage", "sls_killer_nofalldamage", function(target, damageinfo)
+	if not target or not IsValid(target) or not target:IsPlayer() then return end
+	if not target:Alive() then return end
+	if target:Team() ~= TEAM_KILLER then return end
+	if not damageinfo:IsFallDamage() then return end
+
+	return true
+end)

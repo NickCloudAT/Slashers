@@ -86,12 +86,8 @@ if CLIENT then
 					AlreadyBreathing = true
 				end
 
-				if ply.Stamina <= 5 then
-					NewButtons = NewButtons - IN_JUMP
-				end
-
 				if not AlreadyJump and ply.Stamina >= 5  then
-					ply.Stamina = ply.Stamina - (ply.MaxStamina * 1/7)
+					ply.Stamina = ply.Stamina - 10
 					-- print(ply.Stamina)
 				end
 				AlreadyJump = true
@@ -111,7 +107,7 @@ if CLIENT then
 				else
 
 					ply.Stamina = math.Clamp(ply.Stamina - 2 * Change * ply.DecayMul,0,ply.MaxStamina)
-					ply.NextRegen = CurTime() + 2.25
+					ply.NextRegen = CurTime() + 2
 
 				end
 
@@ -133,13 +129,13 @@ if CLIENT then
 				if ply.NextRegen < CurTime() then
 					if (cmd:KeyDown(IN_FORWARD) or cmd:KeyDown(IN_BACK) or cmd:KeyDown(IN_MOVELEFT) or cmd:KeyDown(IN_MOVERIGHT)) then
 							if GAMEMODE.CLASS.Survivors[ply.ClassID].name ~= "Sports" then
-								ply.Stamina = math.Clamp(ply.Stamina + ( Change * 0.5 * ply.RegenMul ) ,0,ply.MaxStamina)
+								ply.Stamina = math.Clamp(ply.Stamina + ( Change * 0.8 * ply.RegenMul ) ,0,ply.MaxStamina)
 							else
 								ply.Stamina = math.Clamp(ply.Stamina + ( Change * 1.5 * ply.RegenMul ) ,0,ply.MaxStamina)
 							end
 					else
 						if GAMEMODE.CLASS.Survivors[ply.ClassID].name ~= "Sports" then
-							ply.Stamina = math.Clamp(ply.Stamina + ( Change * 1 * ply.RegenMul ) ,0,ply.MaxStamina)
+							ply.Stamina = math.Clamp(ply.Stamina + ( Change * 1.1 * ply.RegenMul ) ,0,ply.MaxStamina)
 						else
 							ply.Stamina = math.Clamp(ply.Stamina + ( Change * 2 * ply.RegenMul ) ,0,ply.MaxStamina)
 						end

@@ -50,15 +50,16 @@ SWEP.Primary.Automatic = false
 
 SWEP.Secondary.Blunt = true
 SWEP.Secondary.RPM = 60 -- Delay = 60/RPM, this is only AFTER you release your heavy attack
-SWEP.Secondary.Damage = 60
-SWEP.Secondary.Reach = 40	
+SWEP.Secondary.Damage = 25
+SWEP.Secondary.Reach = 40
 SWEP.Secondary.SoundDelay = 0.0
 SWEP.Secondary.Delay = 0.2
 SWEP.Secondary.Automatic = false
 
-SWEP.Secondary.BashDamage = 50
-SWEP.Secondary.BashDelay = 0.35
+SWEP.Secondary.BashDamage = 25
+SWEP.Secondary.BashDelay = 0.5
 SWEP.Secondary.BashLength = 40
+SWEP.Secondary.BashHitDelay = 1.8
 
 SWEP.MoveSpeed = 1
 SWEP.AllowViewAttachment = false
