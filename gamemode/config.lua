@@ -28,7 +28,7 @@ GM.CONFIG["round_choosekiller_add"] = 10
 -- Temps de démarrage de la manche (secondes)
 GM.CONFIG["round_freeze_start"] = 10
 -- Durée d'attente lors d'une fin de manche
-GM.CONFIG["round_duration_end"] = 30
+GM.CONFIG["round_duration_end"] = 20
 
 -- Entités Killerhelp porte
 GM.CONFIG["killerhelp_door_entities"] = {

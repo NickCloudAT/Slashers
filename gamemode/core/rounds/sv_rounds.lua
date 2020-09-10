@@ -7,6 +7,7 @@
 
 local GM = GM or GAMEMODE
 local MAPS_LIST
+local lastWait
 
 util.AddNetworkString("sls_round_PreStart")
 util.AddNetworkString("sls_round_PostStart")
@@ -43,6 +44,8 @@ function GM.ROUND:Start(forceKiller)
 	GM.ROUND.WaitingPolice = false
 	GM.ROUND.Escape = false
 	GM.ROUND.NextStart = nil
+
+	lastWait = nil
 
 	local playersCount = 0
 	for _, v in ipairs(player.GetAll()) do
@@ -289,25 +292,29 @@ local function Think()
 
 	-- Waiting Players
 	if GM.ROUND.WaitingPlayers && (!GM.ROUND.NextStart || curtime >= GM.ROUND.NextStart) then
-		local count = 0
-		for _, v in ipairs(player.GetAll()) do
-			if v.initialKill then
-				count = count + 1
-			end
-		end
-		if count >= GetConVar("slashers_round_min_player"):GetInt() then
-			GM.ROUND.WaitingPlayers = false
-			timer.Simple(1, function()
-				if #player.GetAll() < GetConVar("slashers_round_min_player"):GetInt() then
-					GM.ROUND.WaitingPlayers = true
-					return
-				end
+		if not lastWait then lastWait = curtime end
 
-				net.Start("sls_round_WaitingPlayers")
+		if lastWait+8<curtime then
+			local count = 0
+			for _, v in ipairs(player.GetAll()) do
+				if v.initialKill then
+					count = count + 1
+				end
+			end
+			if count >= GetConVar("slashers_round_min_player"):GetInt() then
+				GM.ROUND.WaitingPlayers = false
+				timer.Simple(1, function()
+					if #player.GetAll() < GetConVar("slashers_round_min_player"):GetInt() then
+						GM.ROUND.WaitingPlayers = true
+						return
+					end
+
+					net.Start("sls_round_WaitingPlayers")
 					net.WriteBool(false)
-				net.Broadcast()
-				GM.ROUND:Start()
-			end)
+					net.Broadcast()
+					GM.ROUND:Start()
+				end)
+			end
 		end
 	end
 
