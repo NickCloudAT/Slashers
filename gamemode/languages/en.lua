@@ -9,17 +9,17 @@ local LANG = {}
 
 -- 	Core Gamemode
 -- 		Survivors
-LANG["class_desc_sports"] = "You have a lot of stamina and you're strong. Use weapons to stun the killer and helping the survivors running away."
-LANG["class_desc_popular"] = "You're notified of the exact position of the Police at the end of each game. Use it to help the survivors escaping."
-LANG["class_desc_nerd"] = "Use your detector to see players nearby. Be careful, you can't make difference between survivors and the killer."
+LANG["class_desc_sports"] = "You have a lot of stamina and you're strong. Use weapons to stun the killer and help the survivors to run away."
+LANG["class_desc_popular"] = "You're notified of the exact position of the Police at the end of each game. Use it to help the survivors escape."
+LANG["class_desc_nerd"] = "Use your detector to see players nearby. Be careful, you can't see the difference between survivors and the killer."
 LANG["class_desc_fat"] = "You're the strongest and hardest survivor to kill but you have the lowest stamina."
-LANG["class_desc_shy"] = "You're immunized to the killer main ability, but you're very weak. Be careful, the killer may want to kill you in priority."
-LANG["class_desc_junky"] = "You have an improved vision. Use it instead of your flashlight for a better stealth."
-LANG["class_desc_emo"] = "You're immunized to the killer second ability. Stay alone when hiding for a better chance of survival."
+LANG["class_desc_shy"] = "You're immunized to the killers main ability, but you're very weak. Be careful, the killer may wants to kill you in priority."
+LANG["class_desc_junky"] = "You have improved vision. Use it instead of your flashlight for better stealth."
+LANG["class_desc_emo"] = "You're immunized to the killers second ability. Stay alone when hiding for a better chance of survival."
 LANG["class_desc_black"] = "You have 3 keys, use them to lock doors and keep the survivors safe. You can unlock locked doors to get back your keys."
-LANG["class_desc_sherif"] = "You have a revolver. Use it to stun the killer and allow the survivors to run away. You can't kill the killer."
+LANG["class_desc_sherif"] = "You have a revolver. Use it to stun the killer and allow the survivors to run away. You can kill the killer."
 --		Killers
-LANG["class_desc_jason"] = "You're the fastest killer and have the ability to see footprints left by the survivors to follow them. Listen carefully, you may hear survivors' hearbeat."
+LANG["class_desc_jason"] = "You're the fastest killer and have the ability to see footprints left by the survivors to follow them. Listen carefully, you may hear survivors' hearbeats."
 LANG["class_desc_ghostface"] = "You have the ability to see when a survivor open or close a door, use it to find them quickly. Think about closing opened doors to force the survivors to open door again. Listen carefully, you may hear survivors' hearbeat."
 LANG["class_desc_myers"] = "You're the slowest killer and have the ability to focus one survivor at the time. Use it carefully to surprise the survivors and kill them quickly. Listen carefully, you may heard survivors' hearbeat."
 LANG["class_desc_proxy"] = "You have the ability to appear and disappear when not visible by a survivor. Use it to sneak and surprise your victims. Press your menu key ('A' by default) to use it. Listen carefully, you may hear survivors' heartbeat."
