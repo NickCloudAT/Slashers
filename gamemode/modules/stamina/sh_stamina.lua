@@ -150,7 +150,7 @@ if CLIENT then
 
 	local function ResetStamina()
 		local ply = LocalPlayer()
-		if ply == GAMEMODE.ROUND.Killer then return end
+		if ply == GAMEMODE.ROUND.Killer or ply:IsSpec() then return end
 		ply.Stamina = GAMEMODE.CLASS.Survivors[ply.ClassID].stamina
 		ply.MaxStamina = GAMEMODE.CLASS.Survivors[ply.ClassID].stamina
 		ply.DecayMul = 0.8

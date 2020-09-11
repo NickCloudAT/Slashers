@@ -49,6 +49,7 @@ function GM.ROUND:Start(forceKiller)
 
 	local playersCount = 0
 	for _, v in ipairs(player.GetAll()) do
+		if v:IsSpec() then continue end
 		if v.initialKill then
 			playersCount = playersCount + 1
 		end
@@ -78,6 +79,7 @@ function GM.ROUND:Start(forceKiller)
 
 	local i = 0
 	for _, v in ipairs(player.GetAll()) do
+		if v:IsSpec() then continue end
 		if i > 10 then break end
 		if GM.ROUND.Killer != v then
 			table.insert(GM.ROUND.Survivors, v)
@@ -304,6 +306,7 @@ local function Think()
 			lastWait = curtime
 			local count = 0
 			for _, v in ipairs(player.GetAll()) do
+				if v:IsSpec() then continue end
 				if v.initialKill then
 					count = count + 1
 				end

@@ -119,7 +119,7 @@ local function PlayerInitialSpawn(ply)
 			for _, v in ipairs(GM.ROUND.Survivors) do
 				if v:Alive() then
 					net.Start("sls_round_Camera")
-						net.WriteBool(false)
+					net.WriteBool(false)
 					net.Broadcast()
 					SpectatePlayer(ply, v)
 				end
@@ -136,3 +136,21 @@ local function DeadChat(rext,teamOnly,listener,speaker)
 	end
 end
 hook.Add("PlayerCanSeePlayersChat","sls_observer_chat",DeadChat)
+
+hook.Add("sls_round_PostStart", "sls_setspectarget_specs", function()
+	local firstAlive
+
+	for k,v in ipairs(GM.ROUND.Survivors) do
+		if not v:Alive() then continue end
+		firstAlive = v
+		break
+	end
+
+	for k,v in ipairs(sls_get_specs()) do
+		SpectatePlayer(v, firstAlive)
+	end
+
+	net.Start("sls_round_Camera")
+	net.WriteBool(false)
+	net.Broadcast()
+end)

@@ -32,7 +32,12 @@ local function HUDPaint()
 
 	-- Waiting for player
 	if GM.ROUND.WaitingPlayers then
-		local text = GM.LANG:GetString("round_wait_players", #player.GetAll(), GetConVar("slashers_round_min_player"):GetInt())
+		local count = 0
+		for k,v in ipairs(player.GetAll()) do
+			if v:IsSpec() then continue end
+			count = count+1
+		end
+		local text = GM.LANG:GetString("round_wait_players", count, GetConVar("slashers_round_min_player"):GetInt())
 		surface.SetFont("horror1")
 		local tw = surface.GetTextSize(text)
 		surface.SetTextColor(Color(255, 255, 255))
@@ -45,6 +50,7 @@ hook.Add("HUDPaint", "sls_round_HUDPaint", HUDPaint)
 
 local function PostStart()
 	ShowTitle("SLASHERS",4)
+	if LocalPlayer():IsSpec() then return end
 	timer.Simple(4, function()
 
 		local TeamName

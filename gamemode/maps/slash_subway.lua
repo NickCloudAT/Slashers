@@ -114,7 +114,7 @@ if CLIENT then
 		local curtime = CurTime()
 		local ply = LocalPlayer()
 
-		if !ply:IsLineOfSightClear( v )  or !v:IsValid() or v == ply then return end
+		if not IsValid(v) or not ply:IsLineOfSightClear( v ) or v == ply then return end
 
 
 		local TargetPosMax= v:GetPos()+ v:OBBMaxs() - Vector(10,0,0)

@@ -67,7 +67,7 @@ GM.MAP.Goal = {
 GM.MAP.Killer.Name = "Ghostface"
 GM.MAP.Killer.Model = "models/player/screamplayermodel/scream/scream.mdl"
 GM.MAP.Killer.WalkSpeed = 190
-GM.MAP.Killer.RunSpeed = 240
+GM.MAP.Killer.RunSpeed = 235
 GM.MAP.Killer.ExtraWeapons = {}
 
 if CLIENT then

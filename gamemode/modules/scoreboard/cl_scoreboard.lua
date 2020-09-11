@@ -67,7 +67,7 @@ local function HUDDrawScoreBoard()
 		end
 
 		-- Pseudo
-		local nick = v:Name()
+		local nick = v:IsSpec() and v:Name() .. " | SPECMODE" or v:Name()
 		surface.SetFont("horrortext")
 		surface.SetTextColor(Color(255, 255, 255, opacity))
 		local tw, th = surface.GetTextSize(nick)

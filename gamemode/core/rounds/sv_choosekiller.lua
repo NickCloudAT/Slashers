@@ -12,6 +12,7 @@ function GM.ROUND:ChooseKiller()
 	local tbl = {}
 	local winkey = 0
 	for _, v in ipairs(player.GetAll()) do
+		if v:IsSpec() then continue end
 		if !tbl[v.choosekiller] then
 			tbl[v.choosekiller] = {}
 		end

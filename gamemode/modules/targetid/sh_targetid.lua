@@ -22,7 +22,7 @@ if CLIENT then
 
     if not ent or not IsValid(ent) or not ent:IsPlayer() then return end
 
-    if not ent:Alive() then return end
+    if not ent:Alive() or ent:GetRenderMode() == RENDERMODE_NONE then return end
 
     draw.DrawText(ent:Nick(), "horror2", ScrW() * 0.5, ScrH() * 0.25, Color(255,255,255,255), TEXT_ALIGN_CENTER)
   end
