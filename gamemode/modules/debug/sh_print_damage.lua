@@ -7,6 +7,12 @@ if SERVER then
 
   	if not attacker or not IsValid(attacker) or not attacker:IsPlayer() or attacker:Team() == target:Team() then return end
 
-    print("[DEBUG-HURT] " .. attacker:Nick() .. " damaged " .. target:Nick() .. " [" .. damageinfo:GetDamage() .. "]")
+    local survString = "SURVIV"
+    local killString = "KILLER"
+
+    local attackerNick = attacker:Team() == TEAM_KILLER and attacker:Nick() .. "(" .. killString .. ")" or attacker:Nick() .. "(" .. survString .. ")"
+    local targetNick = target:Team() == TEAM_KILLER and target:Nick() .. "(" .. killString .. ")" or target:Nick() .. "(" .. survString .. ")"
+
+    print("[DEBUG-HURT] " .. attackerNick .. " damaged " .. targetNick .. " [" .. damageinfo:GetDamage() .. "]")
   end
 end
