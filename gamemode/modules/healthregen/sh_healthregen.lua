@@ -11,6 +11,8 @@ if SERVER then
 
         if not v.health_regen_time then v.health_regen_time = CurTime() end
 
+        if v:Health() >= v:GetMaxHealth() then continue end
+
         if v:Team() == TEAM_KILLER then
           if v.health_regen_time+5 < CurTime() then
             local newHealth = v:Health()+1 <= v:GetMaxHealth() and v:Health()+1 or v:GetMaxHealth()
