@@ -57,16 +57,16 @@ if CLIENT then
 		if !GAMEMODE.ROUND.Active || !IsValid(GAMEMODE.ROUND.Killer) || !GAMEMODE.ROUND.Survivors  then return end
 		if table.HasValue(GAMEMODE.ROUND.Survivors, ply )  then
 
-			if 	ply.Stamina >= 10 then
+			if ply.Stamina >= 36 then
 				net.Start("stopSound")
-					net.WriteString("Breathing")
+				net.WriteString("Breathing")
 				net.SendToServer()
 
 				-- ply:StopSound( "Breathing" )
 				AlreadyBreathing = false
 			end
 
-			if 	!ply:Alive() then
+			if not ply:Alive() then
 				net.Start("stopSound")
 				net.WriteString("Breathing")
 				net.SendToServer()
@@ -75,16 +75,7 @@ if CLIENT then
 				AlreadyBreathing = false
 			end
 
-			if cmd:KeyDown(IN_JUMP) and ply:OnGround() and !ply:InVehicle() then
-
-				if not AlreadyBreathing and ply.Stamina<=30 then
-
-					net.Start("wantedSound")
-					net.WriteString("Breathing")
-					net.SendToServer()
-					-- ply:EmitSound("Breathing")
-					AlreadyBreathing = true
-				end
+			if cmd:KeyDown(IN_JUMP) and ply:OnGround() and not ply:InVehicle() then
 
 				if not AlreadyJump and ply.Stamina >= 5  then
 					ply.Stamina = ply.Stamina - 10
@@ -111,7 +102,7 @@ if CLIENT then
 
 				end
 
-				if not AlreadyBreathing and ply.Stamina<=60 then
+				if not AlreadyBreathing and ply.Stamina<=35 then
 
 					net.Start("wantedSound")
 					net.WriteString("Breathing")

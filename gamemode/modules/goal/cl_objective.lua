@@ -10,13 +10,11 @@ net.Receive( "objectiveSlasher", function()
 	 local NotifType = net.ReadString()
 
 	 objectivePanel(#NotifText > 0 and GAMEMODE.LANG:GetString(unpack(NotifText)) or "",NotifType)
-
 end )
 ---
 net.Receive( "activateProgressionSlasher", function()
 	 local value = net.ReadFloat()
 	 ProgressBar(value)
-
 end )
 
 ---
@@ -36,7 +34,7 @@ function ProgressBar(fraction)
 
 		DProgress = vgui.Create( "DPanel" )
 		DProgress:AlignBottom(100) -- Set the position of the panel
-		DProgress:CenterHorizontal(0.4)
+		DProgress:CenterHorizontal(0.45)
 		DProgress:SetSize( 300, 10 ) -- Set the size of the panel
 
 		DProgressBar = vgui.Create( "DProgress" , DProgress)
