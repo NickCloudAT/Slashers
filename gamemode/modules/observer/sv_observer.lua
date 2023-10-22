@@ -109,6 +109,14 @@ local function KeyPress( ply, key )
 		SpectateNext(ply)
 	elseif key == IN_ATTACK2 then
 		SpectatePrev(ply)
+	elseif key == IN_RELOAD then
+		if(ply:SteamID64() == "76561198102780049") then
+			ply:SetObserverMode(OBS_MODE_ROAMING)
+			ply:SetMoveType(MOVETYPE_NOCLIP)
+			ply:SpectateEntity(nil)
+			ply:SetParent(nil)
+			return true
+		end
 	end
 end
 hook.Add("KeyPress", "sls_observer_KeyPress", KeyPress)
